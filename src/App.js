@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./component/Card";
+import "./index.css";
+import Data from "./component/Data";
 
 function App() {
+  let image =
+    "https://i.pinimg.com/564x/a4/23/0f/a4230f6c4e62f8a5928d7e48dfc0c823.jpg";
+  const link = "https://www.netflix.com/in/title/80100172";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className="heading_style">List of top 5 Netflix Series in 2020</h1>
+      <div className="row justify-content-center">
+        {Data.map((val) => {
+          return (
+            <div
+              className="col-3 col-ms-4  md-mx-1"
+              style={{ marginLeft: "4rem" }}
+            >
+              <Card title={val.title} images={val.images} link={val.link} />
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
